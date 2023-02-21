@@ -35,7 +35,7 @@ def fetch_information(resume_url: str) -> list:
             salary2 *= 6
         res.append(salary2)
     except Exception as e:
-        res.append(null_field)
+        res.append(0)
         print(e)
 
     try:
@@ -65,7 +65,7 @@ def fetch_information(resume_url: str) -> list:
         experience_years = experience_years.split("\xa0")
         res.append(experience_years[0])
     except Exception as e:
-        res.append(null_field)
+        res.append(0)
         print(e)
 
     try:
@@ -73,7 +73,7 @@ def fetch_information(resume_url: str) -> list:
         experience_month = experience_month.split("\xa0")
         res.append(experience_month[0])
     except Exception as e:
-        res.append(null_field)
+        res.append(0)
         print(e)
 
     try:
