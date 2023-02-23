@@ -43,7 +43,7 @@ def fetch_information(resume_url: str) -> list:
         age = age.split("\xa0")
         res.append(age[0])
     except Exception as e:
-        res.append(null_field)
+        res.append(0)
         print(e)
 
     try:
@@ -79,13 +79,17 @@ def fetch_information(resume_url: str) -> list:
     try:
         citizenship = html.select('[data-qa="resume-block-additional"] > .resume-block-item-gap > '
                                   '.bloko-columns-row > .bloko-column > .resume-block-container > p')[0].text
-        res.append(citizenship)
+        res.append(citizenship.split()[1])
     except Exception as e:
         res.append(null_field)
         print(e)
 
     try:
-        sex = html.select('[data-qa="resume-personal-gender"]')[0].text
+        sex_text = html.select('[data-qa="resume-personal-gender"]')[0].text
+        if sex_text[0].upper() == 'M' or sex_text[0].upper() == 'М':
+            sex = True
+        else:
+            sex = False
         res.append(sex)
     except Exception as e:
         res.append(null_field)

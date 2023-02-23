@@ -8,7 +8,7 @@ import pandas as pd
 # file_name = input("Enter file name: ") + ".csv"
 theme = "python"
 pages = 1
-file_name = "data1.csv"
+file_name = "data.csv"
 
 # , encoding="utf-8"
 with open(file_name, "a", newline='') as file:
